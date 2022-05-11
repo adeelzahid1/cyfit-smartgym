@@ -1,4 +1,4 @@
-import 'package:cyfit/model/User.dart';
+import 'package:cyfit/model/user.dart';
 import 'package:cyfit/model/checkbox.dart';
 import 'package:flutter/cupertino.dart';
 

@@ -1,4 +1,10 @@
+import 'package:cyfit/constant/theme_color.dart';
+import 'package:cyfit/page/signIn_page/sign_in_page.dart';
 import 'package:cyfit/page/signUp_page/sign-up_provider.dart';
+import 'package:cyfit/widget/double_line.dart';
+import 'package:cyfit/widget/form_button.dart';
+import 'package:cyfit/widget/input_field.dart';
+import 'package:cyfit/widget/social_icon.dart';
 import "package:flutter/material.dart";
 import 'package:provider/provider.dart';
 
@@ -33,7 +39,7 @@ class HomePageWidget extends StatelessWidget {
       child: Scaffold(
         backgroundColor: Colors.transparent,
         body: Padding(
-          padding: EdgeInsets.fromLTRB(36, 0, 36, 0),
+          padding: const EdgeInsets.fromLTRB(36, 0, 36, 0),
           child: ListView(
             children: [
               Column(
@@ -48,22 +54,20 @@ class HomePageWidget extends StatelessWidget {
                     ],
                   ),
                   const SizedBox(height: 18,),
-                  Container(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text("Register with socials",style: registerHeadingStyle ,),
-                        const SizedBox(height: 10,),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            SocialIcon(bgColor:bgButtonWhite, svgImage: 'assets/icons/google-icon.svg',onTap: (){ print("google");},),
-                            SocialIcon(bgColor:kbgBlue,color: Colors.white, svgImage: 'assets/icons/facebook-2.svg',onTap: (){print("facebook");},),
-                            SocialIcon(bgColor:lightBlue,color: Colors.white, svgImage: 'assets/icons/twitter.svg',onTap: (){print("twitter");},),
-                          ],
-                        )
-                      ],
-                    ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text("Register with socials",style: registerHeadingStyle ,),
+                      const SizedBox(height: 10,),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          SocialIcon(bgColor:bgButtonWhite, svgImage: 'assets/icons/google-icon.svg',onTap: (){ print("google");},),
+                          SocialIcon(bgColor:kbgBlue,color: Colors.white, svgImage: 'assets/icons/facebook-2.svg',onTap: (){print("facebook");},),
+                          SocialIcon(bgColor:lightBlue,color: Colors.white, svgImage: 'assets/icons/twitter.svg',onTap: (){print("twitter");},),
+                        ],
+                      )
+                    ],
                   ),
                   // const SizedBox(height: 6,),
                   const DoubleLine(),
@@ -128,7 +132,7 @@ class HomePageWidget extends StatelessWidget {
                               signUpProvider.onSubmit();
                               ScaffoldMessenger.of(context).showSnackBar(
                                   const SnackBar(content: Text("VaLIDATION PASSED")));
-                              Navigator.of(context).push(MaterialPageRoute(builder: (context)=>LoginPage()));
+                              Navigator.of(context).push(MaterialPageRoute(builder: (context)=>const LoginPage()));
                             }else{
                               signUpProvider.onSubmit();
                               ScaffoldMessenger.of(context).showSnackBar(
@@ -151,7 +155,7 @@ class HomePageWidget extends StatelessWidget {
                       const SizedBox(width: 3,),
                       InkWell(
                         onTap: (){
-                          Navigator.of(context).push(MaterialPageRoute(builder: (context)=>LoginPage()));
+                          Navigator.of(context).push(MaterialPageRoute(builder: (context)=>const LoginPage()));
                         },
                         child:  Text("Sign in",
                           style: memberHeadingStyle.copyWith(color: Colors.blue),

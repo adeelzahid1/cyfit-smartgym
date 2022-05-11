@@ -1,5 +1,10 @@
 import 'package:cyfit/constant/theme_color.dart';
 import 'package:cyfit/page/signIn_page/sign_in_provider.dart';
+import 'package:cyfit/page/signUp_page/signUp_page.dart';
+import 'package:cyfit/widget/double_line.dart';
+import 'package:cyfit/widget/form_button.dart';
+import 'package:cyfit/widget/input_field.dart';
+import 'package:cyfit/widget/social_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -10,12 +15,12 @@ class LoginPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return ChangeNotifierProvider<SignInProvider>(
       create: (context)=>SignInProvider(),
-      child: LoginPageWidget(),);
+      child: const LoginPageWidget(),);
   }
 }
 
 class LoginPageWidget extends StatefulWidget {
-  LoginPageWidget({Key? key}) : super(key: key);
+  const LoginPageWidget({Key? key}) : super(key: key);
 
   @override
   State<LoginPageWidget> createState() => _LoginPageWidgetState();
@@ -39,7 +44,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
       child: Scaffold(
         backgroundColor: Colors.transparent,
         body: Padding(
-          padding: EdgeInsets.fromLTRB(36, 0, 36, 0),
+          padding: const EdgeInsets.fromLTRB(36, 0, 36, 0),
           child: ListView(
             children: [
               Column(
@@ -48,31 +53,29 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                     children: [
                       IconButton(onPressed:(){
                         print("Button Click");
-                      }, icon: Icon(Icons.arrow_back), iconSize: 44,),
-                      SizedBox(height: 10,),
+                      }, icon: const Icon(Icons.arrow_back), iconSize: 44,),
+                      const SizedBox(height: 10,),
                       Image.asset("assets/images/logo.png",height: size.height * 0.10,),
                     ],
                   ),
                   const SizedBox(height: 23,),
-                  Container(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text("Login Using Email",style: registerHeadingStyle ,),
-                        const SizedBox(height: 15,),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            SocialIcon(bgColor:bgButtonWhite, svgImage: 'assets/icons/google-icon.svg',onTap: (){ print("google");},),
-                            SocialIcon(bgColor:kbgBlue,color: Colors.white, svgImage: 'assets/icons/facebook-2.svg',onTap: (){print("facebook");},),
-                            SocialIcon(bgColor:lightBlue,color: Colors.white, svgImage: 'assets/icons/twitter.svg',onTap: (){print("twitter");},),
-                          ],
-                        )
-                      ],
-                    ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text("Login Using Email",style: registerHeadingStyle ,),
+                      const SizedBox(height: 15,),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          SocialIcon(bgColor:bgButtonWhite, svgImage: 'assets/icons/google-icon.svg',onTap: (){ print("google");},),
+                          SocialIcon(bgColor:kbgBlue,color: Colors.white, svgImage: 'assets/icons/facebook-2.svg',onTap: (){print("facebook");},),
+                          SocialIcon(bgColor:lightBlue,color: Colors.white, svgImage: 'assets/icons/twitter.svg',onTap: (){print("twitter");},),
+                        ],
+                      )
+                    ],
                   ),
                   const SizedBox(height: 6,),
-                  DoubleLine(),
+                  const DoubleLine(),
                   const SizedBox(height: 6,),
                   Row(
                     children:  [
@@ -110,7 +113,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                             Expanded(
                               // flex:1,
                               child: CheckboxListTile(
-                                contentPadding: EdgeInsets.only(left: 0),
+                                contentPadding: const EdgeInsets.only(left: 0),
                                   controlAffinity: ListTileControlAffinity.leading,
                                 title: Text("Remember me",style: forgetPassword),
                                   value: checkboxIndex,
@@ -139,7 +142,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                               _formKey.currentState!.save();
                               signInProvider.onSubmit();
                               ScaffoldMessenger.of(context).showSnackBar(
-                                  SnackBar(content: const Text("VaLIDATION PASSED"))
+                                  const SnackBar(content: Text("VaLIDATION PASSED"))
                               );
                               Navigator.of(context).push(MaterialPageRoute(builder: (context)=>const SignUpPage()));
                             }else{
@@ -148,7 +151,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                             }
 
                           },
-                          padding:EdgeInsets.symmetric(vertical: 15) ,
+                          padding:const EdgeInsets.symmetric(vertical: 15) ,
                           bgcolor: lightBlue.withOpacity(0.7), color: Colors.white,
                           width: double.infinity, textButton: 'Join Us',),
                       ],

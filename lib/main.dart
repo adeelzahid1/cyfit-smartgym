@@ -1,3 +1,4 @@
+import 'package:cyfit/page/signUp_page/signUp_page.dart';
 import 'package:flutter/material.dart';
 
 
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
 
       ),
-      home: SignUpPage(),
+      home: const SignUpPage(),
     );
   }
 }

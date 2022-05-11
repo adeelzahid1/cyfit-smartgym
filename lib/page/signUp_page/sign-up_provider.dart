@@ -1,5 +1,6 @@
-import 'package:cyfit/model/SignupUser.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:cyfit/model/signup_user.dart';
+import 'package:flutter/material.dart';
+
 
 
 class SignUpProvider extends ChangeNotifier{
